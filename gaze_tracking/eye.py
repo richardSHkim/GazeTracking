@@ -116,6 +116,7 @@ class Eye(object):
             calibration.evaluate(self.frame, side)
 
         threshold = calibration.threshold(side)
+        # threshold = calibration.find_best_threshold(self.frame)
         self.pupil = Pupil(self.frame, threshold)
 
     def draw_origin(self, frame):

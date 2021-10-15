@@ -28,9 +28,13 @@ class Pupil(object):
             A frame with a single element representing the iris
         """
         kernel = np.ones((3, 3), np.uint8)
+        # cv2.imwrite('1.jpg', eye_frame)
         new_frame = cv2.bilateralFilter(eye_frame, 10, 15, 15)
+        # cv2.imwrite('2.jpg', new_frame)
         new_frame = cv2.erode(new_frame, kernel, iterations=3)
+        # cv2.imwrite('3.jpg', new_frame)
         new_frame = cv2.threshold(new_frame, threshold, 255, cv2.THRESH_BINARY)[1]
+        # cv2.imwrite('4.jpg', new_frame)
 
         return new_frame
 

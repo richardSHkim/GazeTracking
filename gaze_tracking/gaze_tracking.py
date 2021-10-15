@@ -52,6 +52,10 @@ class GazeTracking(object):
             self.face_landmark_points = np.array([(landmarks.part(pt).x, landmarks.part(pt).y) for pt in range(68)])
             self.face_landmark_points = self.face_landmark_points.astype(np.int32)
 
+            # test_frame = self.frame.copy()
+            # self.draw_all_landmarks(test_frame)
+            # cv2.imwrite('0.jpg', test_frame)
+
             self.eye_left = Eye(frame, landmarks, 0, self.calibration)
             self.eye_right = Eye(frame, landmarks, 1, self.calibration)
 
